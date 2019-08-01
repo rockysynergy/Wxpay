@@ -1,0 +1,19 @@
+{
+    "name": "orq/wxpay",
+    "description": "PHP WeChat Pay library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rocky",
+            "email": "rockysynergy@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Orq\\Wxpn\\": "src"
+        }
+    }
+}
