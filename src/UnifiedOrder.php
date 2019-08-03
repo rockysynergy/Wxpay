@@ -41,7 +41,7 @@ class UnifiedOrder extends Client
             }
             $this->parameters["appid"] = $this->config->getAppid();//公众账号ID
             $this->parameters["mch_id"] = $this->config->getMchid();//商户号
-            $this->parameters["spbill_create_ip"] = $_SERVER['REMOTE_ADDR'];//终端ip       
+            $this->parameters["spbill_create_ip"] = !empty($this->config->getServerIp()) ? $this->config->getServerIp() : $_SERVER['REMOTE_ADDR'];//终端ip       
             $this->parameters["nonce_str"] = Utility::createNoncestr();//随机字符串
             $this->parameters["sign"] = Utility::getSign($this->parameters, $this->config);//签名
             $xyz = Utility::arrayToXml($this->parameters);

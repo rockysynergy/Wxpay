@@ -9,4 +9,5 @@ interface WxpayConfigInterface {
     public function getKey();
     public function getSslCertPath();
     public function getSslKeyPath();
+    public function getServerIp();
 }
