@@ -1,4 +1,4 @@
-# wxpn
+# wxpay
 微信支付开发PHP库
 
 # 安装
@@ -114,7 +114,7 @@ $.post('/make_order', function (res) {
 
     // 支付通知处理
         public function handleNotify() {
-            $str = 'php://input';
+            $str = file_get_contents('php://input');
                 
             $arr = \Orq\Wxpay\Utility::xmlToArray($str);
             $okMsg = ['return_code'=>'SUCCESS', 'return_msg'=>'OK'];
@@ -131,6 +131,7 @@ $.post('/make_order', function (res) {
                 if ($arr['total_fee'] == $order->getPayAmount()*100) {
                     try {
                         $order->setPayStatus('2');
+                        $order->setUpdatedAt(date('Y-m-d H:i:s'));
                         $orderRepository->updateOrder($order);
                         return $util->arrayToXml($okMsg);
                     } catch (RepositoryException $e) {
