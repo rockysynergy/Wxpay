@@ -1,7 +1,7 @@
 <?php
 namespace Orq\Wxpay;
 
-interface WxpayConfigInterface {
+interface WxPayConfigInterface {
     public function getAppid();
     public function getMchid();
     public function getCurlTimeout();
